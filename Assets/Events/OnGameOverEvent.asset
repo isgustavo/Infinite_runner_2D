@@ -8,8 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61c08e34528a64f33b48966f37280e17, type: 3}
-  m_Name: FrontBuildingSpeed
+  m_Script: {fileID: 11500000, guid: 4b17bb166ea73403dad3c26e7d4fd7c9, type: 3}
+  m_Name: OnGameOverEvent
   m_EditorClassIdentifier: 
-  floatValue: 5
-  resetOnEnable: 0

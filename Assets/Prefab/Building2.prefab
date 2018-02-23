@@ -86,6 +86,8 @@ GameObject:
   - component: {fileID: 114704583473190762}
   - component: {fileID: 50874822878211368}
   - component: {fileID: 61326137663934912}
+  - component: {fileID: 114407916472621678}
+  - component: {fileID: 114810498672124582}
   m_Layer: 0
   m_Name: Building2
   m_TagString: Untagged
@@ -181,7 +183,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!61 &61326137663934912
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -207,6 +209,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114407916472621678
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1842056843329966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ee03dcb68064751bdda8542158bfba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 8c1c5d553b43347f99fbdd151f46aead, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114704583473190762}
+        m_MethodName: OnPauseChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114704583473190762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -219,8 +249,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPause: {fileID: 11400000, guid: 1809f1f7d8122444bb4c9dc00ef46618, type: 2}
-  objectSpeed: {fileID: 11400000, guid: 524413681118d42d68420db34496a34d, type: 2}
   endPoint: {fileID: 4655742374342300, guid: 54ab4808f126f4c74a48710e06d0f9e9, type: 2}
+  objectSpeed: 0
+--- !u!114 &114810498672124582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1842056843329966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ee03dcb68064751bdda8542158bfba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 3ee0223087b4744709b2aa1591c7e36c, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114704583473190762}
+        m_MethodName: OnReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!212 &212143851469105116
 SpriteRenderer:
   m_ObjectHideFlags: 1

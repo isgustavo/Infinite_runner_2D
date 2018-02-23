@@ -16,6 +16,9 @@ public class BoolVariable : ScriptableObject
     [SerializeField]
     public bool resetOnEnable;
 
+    [SerializeField]
+    public GameEvent OnValueChangedEvent;
+
     private void OnEnable()
     {
         if(resetOnEnable)
@@ -27,5 +30,6 @@ public class BoolVariable : ScriptableObject
     public void SetValue (bool value)
     {
         this.boolValue = value;
+        OnValueChangedEvent.Raise();
     }
 }

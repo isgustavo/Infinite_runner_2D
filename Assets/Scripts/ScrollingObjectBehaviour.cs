@@ -32,11 +32,13 @@ public class ScrollingObjectBehaviour : MonoBehaviour
 
     private SpriteRenderer[] sprites;
 
+    [SerializeField]
     private float objectSpeed;
 
     public void Set (int layer, int speed, bool hasColor, Color color, int distanceX = 0)
     {
         objectSpeed = speed;
+        OnPauseChanged();
         distanceXToOtherObject = distanceX;
         for (int i = 0; i < sprites.Length; i++)
         {
@@ -48,6 +50,12 @@ public class ScrollingObjectBehaviour : MonoBehaviour
         }
     }
 
+    public void Set(int layer, int speed)
+    {
+        objectSpeed = speed;
+        OnPauseChanged();
+    }
+
     public Action<ScrollingObjectBehaviour> OnDisableObjectAction = delegate { };
 
     private void Awake()
@@ -55,7 +63,11 @@ public class ScrollingObjectBehaviour : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         bc2D = GetComponent<BoxCollider2D>();
         sprites = GetComponentsInChildren<SpriteRenderer>();
+    }
 
+    private void OnEnable()
+    {
+        OnPauseChanged();
     }
 
     private void LateUpdate()
@@ -70,7 +82,7 @@ public class ScrollingObjectBehaviour : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    public void OnPauseChanged ()
     {
         if(!isPause.Value)
         {
@@ -80,4 +92,11 @@ public class ScrollingObjectBehaviour : MonoBehaviour
             rb2D.velocity = Vector2.zero;
         }
     }
+
+    public void OnReset()
+    {
+        OnDisableObjectAction(this);
+        gameObject.SetActive(false);
+    }
+
 }

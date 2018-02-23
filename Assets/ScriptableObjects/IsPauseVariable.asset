@@ -11,5 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bd372d9f12df4401bb7e2b96ba72f3a, type: 3}
   m_Name: IsPauseVariable
   m_EditorClassIdentifier: 
-  boolValue: 0
+  boolValue: 1
   resetOnEnable: 0
+  OnValueChangedEvent: {fileID: 11400000, guid: 8c1c5d553b43347f99fbdd151f46aead,
+    type: 2}

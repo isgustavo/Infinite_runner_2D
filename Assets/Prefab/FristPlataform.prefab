@@ -22,7 +22,8 @@ GameObject:
   - component: {fileID: 61418941434850564}
   - component: {fileID: 50551236300549872}
   - component: {fileID: 114302300482716794}
-  m_Layer: 0
+  - component: {fileID: 114099093485405932}
+  m_Layer: 8
   m_Name: FristPlataform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4859622880594200}
   - component: {fileID: 212613867681768694}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4399232121537020}
   - component: {fileID: 212737553928528446}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4856533548957398}
   - component: {fileID: 212037456735878486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Detail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +152,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!61 &61418941434850564
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -177,6 +178,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114099093485405932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1182749957222720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ee03dcb68064751bdda8542158bfba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 8c1c5d553b43347f99fbdd151f46aead, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114302300482716794}
+        m_MethodName: OnPauseChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114302300482716794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,8 +218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPause: {fileID: 11400000, guid: 1809f1f7d8122444bb4c9dc00ef46618, type: 2}
-  objectSpeed: {fileID: 11400000, guid: ef771d238c81c4a19b284a82cef72a35, type: 2}
   endPoint: {fileID: 4655742374342300, guid: 54ab4808f126f4c74a48710e06d0f9e9, type: 2}
+  objectSpeed: 0
 --- !u!212 &212037456735878486
 SpriteRenderer:
   m_ObjectHideFlags: 1

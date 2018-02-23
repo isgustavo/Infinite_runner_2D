@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4809820550172618}
   - component: {fileID: 212453271401594390}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4001683308997178}
   - component: {fileID: 212609239370879092}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,9 @@ GameObject:
   - component: {fileID: 61021944055848364}
   - component: {fileID: 50458856060177730}
   - component: {fileID: 114691606829395852}
-  m_Layer: 0
+  - component: {fileID: 114278322210020346}
+  - component: {fileID: 114226001137225160}
+  m_Layer: 8
   m_Name: LongPlataform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4614587956874378}
   - component: {fileID: 212807152100768550}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Detail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +153,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!61 &61021944055848364
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -177,6 +179,62 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114226001137225160
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1614344462209374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ee03dcb68064751bdda8542158bfba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 3ee0223087b4744709b2aa1591c7e36c, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114691606829395852}
+        m_MethodName: OnReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114278322210020346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1614344462209374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ee03dcb68064751bdda8542158bfba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 8c1c5d553b43347f99fbdd151f46aead, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114691606829395852}
+        m_MethodName: OnPauseChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114691606829395852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,8 +247,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPause: {fileID: 11400000, guid: 1809f1f7d8122444bb4c9dc00ef46618, type: 2}
-  objectSpeed: {fileID: 11400000, guid: ef771d238c81c4a19b284a82cef72a35, type: 2}
   endPoint: {fileID: 4655742374342300, guid: 54ab4808f126f4c74a48710e06d0f9e9, type: 2}
+  objectSpeed: 0
 --- !u!212 &212453271401594390
 SpriteRenderer:
   m_ObjectHideFlags: 1

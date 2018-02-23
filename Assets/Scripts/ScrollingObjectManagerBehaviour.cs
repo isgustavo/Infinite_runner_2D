@@ -27,12 +27,17 @@ public class ScrollingObjectManagerBehaviour : MonoBehaviour
     private ScrollingObject[] objects;
 
     private GameObjectPool<ScrollingObjectBehaviour> objectPool = new GameObjectPool<ScrollingObjectBehaviour>();
+    private ScrollingObjectBehaviour firstObjBehaviour;
     private ScrollingObjectBehaviour currentObject;
     private ScrollingObjectBehaviour nextObject;
 
-    private void OnEnable()
+    private void Awake()
     {
         InitPool();
+    }
+
+    private void OnEnable()
+    {
         InitFirstObject();
 
         nextObject = objectPool.GetRandomObj();
@@ -66,12 +71,12 @@ public class ScrollingObjectManagerBehaviour : MonoBehaviour
         }
     }
 
-    private void InitFirstObject ()
+    private void InitFirstObject()
     {
         if (firstObjectPrefab != null)
         {
             GameObject firstObj = Instantiate(firstObjectPrefab, transform);
-            ScrollingObjectBehaviour firstObjBehaviour = firstObj.GetComponent<ScrollingObjectBehaviour>();
+            firstObjBehaviour = firstObj.GetComponent<ScrollingObjectBehaviour>();
             if (firstObjBehaviour != null)
             {
                 firstObj.transform.position = new Vector2(firstObjectStartXPosition + (firstObjBehaviour.ObjectWidth * .5f), objectYPosition);
@@ -81,12 +86,29 @@ public class ScrollingObjectManagerBehaviour : MonoBehaviour
         }
     }
 
+    private void ResetFirstObject ()
+    {
+        if (firstObjBehaviour != null)
+        {
+            firstObjBehaviour.transform.position = new Vector2(firstObjectStartXPosition + (firstObjBehaviour.ObjectWidth * .5f), objectYPosition);
+            firstObjBehaviour.Set(scrollingLayer, scrollingSpeed, hasColor, color);
+            firstObjBehaviour.gameObject.SetActive(true);
+            currentObject = firstObjBehaviour;
+        }
+    }
+
     private void SetNewObject ()
     {
         float currentEndXPosition = currentObject.ObjectEndXPoint;
         currentObject = nextObject;
         currentObject.transform.position = new Vector3(currentEndXPosition + (nextObject.ObjectWidth * .5f) + nextObject.distanceXToOtherObject, objectYPosition, 0);
         currentObject.gameObject.SetActive(true);
+    }
+
+
+    public void ReloadToMenu()
+    {
+        ResetFirstObject();
     }
 }
 
@@ -146,5 +168,6 @@ public class GameObjectPool<T>
         inUseObjs.Remove(obj);
         availableObjs.Add(obj);
     }
+
 }
 

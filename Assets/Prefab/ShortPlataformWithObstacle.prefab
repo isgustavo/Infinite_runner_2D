@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4152063537160612}
   - component: {fileID: 212313587729941558}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Detail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,9 +36,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4393390890584550}
   - component: {fileID: 61829922318139164}
+  - component: {fileID: 61305210805771492}
   - component: {fileID: 50204785130859504}
   - component: {fileID: 114671717964456748}
-  m_Layer: 0
+  - component: {fileID: 114212701027319244}
+  - component: {fileID: 114094668841565442}
+  m_Layer: 8
   m_Name: ShortPlataformWithObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +57,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4868558600097428}
   - component: {fileID: 212965449925483942}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4543585123505962}
   - component: {fileID: 212879403696975288}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4476317754403546}
   - component: {fileID: 212186435194938676}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Detail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4491476495419234}
   - component: {fileID: 212777806315655426}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +214,32 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
+--- !u!61 &61305210805771492
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1039842754809012}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1, y: 1}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1}
+  m_EdgeRadius: 0
 --- !u!61 &61829922318139164
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -237,6 +265,62 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114094668841565442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1039842754809012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ee03dcb68064751bdda8542158bfba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 3ee0223087b4744709b2aa1591c7e36c, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114671717964456748}
+        m_MethodName: OnReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114212701027319244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1039842754809012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ee03dcb68064751bdda8542158bfba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 8c1c5d553b43347f99fbdd151f46aead, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114671717964456748}
+        m_MethodName: OnPauseChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114671717964456748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -249,8 +333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPause: {fileID: 11400000, guid: 1809f1f7d8122444bb4c9dc00ef46618, type: 2}
-  objectSpeed: {fileID: 11400000, guid: ef771d238c81c4a19b284a82cef72a35, type: 2}
   endPoint: {fileID: 4655742374342300, guid: 54ab4808f126f4c74a48710e06d0f9e9, type: 2}
+  objectSpeed: 0
 --- !u!212 &212186435194938676
 SpriteRenderer:
   m_ObjectHideFlags: 1
