@@ -79,7 +79,6 @@ public class PlayerControllerBehaviour : MonoBehaviour
 
             if (controller.GetCollisionInfo().right && trashHit)
             {
-                Debug.Log("Hit");
                 playerHitObstacle();
                 controller.GetCollisionInfo().Reset();
                 trashHit = false;

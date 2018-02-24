@@ -64,9 +64,14 @@ public class CoinManagerBehaviour : MonoBehaviour
     {
         if(isPause.Value)
         {
-            StopAllCoroutines();
+            CancelInvoke("SpawnCoinWithDelay");
         }
     }
 
-	
+    public void OnResetCoinsManager ()
+    {
+        CancelInvoke("SpawnCoinWithDelay");
+        InvokeRepeating("SpawnCoinWithDelay", timeToFirstObject, timeBetweenObject);
+    }
+
 }

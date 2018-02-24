@@ -38,5 +38,6 @@ public class IntVariable : ScriptableObject
     internal void Reset()
     {
         intValue = 0;
+        OnValueChanged.Raise();
     }
 }
