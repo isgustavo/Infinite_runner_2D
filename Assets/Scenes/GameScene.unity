@@ -1485,6 +1485,7 @@ GameObject:
   - component: {fileID: 692329419}
   - component: {fileID: 692329422}
   - component: {fileID: 692329424}
+  - component: {fileID: 692329425}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1711,6 +1712,34 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 692329423}
         m_MethodName: OnReloadTryAgain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &692329425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 692329414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ee03dcb68064751bdda8542158bfba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 03ae928862c824989bd7503080c8378a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 692329418}
+        m_MethodName: playerHitObstacle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2992,6 +3021,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1381254199}
   - component: {fileID: 1381254200}
+  - component: {fileID: 1381254201}
+  - component: {fileID: 1381254202}
   m_Layer: 0
   m_Name: DeadZone
   m_TagString: DeadZone
@@ -3037,6 +3068,39 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.22, y: 0.37}
   m_EdgeRadius: 0
+--- !u!114 &1381254201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1381254198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ecf5fdebb7a243df8af2bb906d693c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTag: Player
+  OnDeadZoneHitEvent: {fileID: 11400000, guid: 03ae928862c824989bd7503080c8378a, type: 2}
+--- !u!50 &1381254202
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1381254198}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
 --- !u!1 &1467669891
 GameObject:
   m_ObjectHideFlags: 0

@@ -89,7 +89,7 @@ public class PlayerControllerBehaviour : MonoBehaviour
         } 
     }
 
-    private void playerHitObstacle ()
+    public void playerHitObstacle ()
     {
         isPause.SetValue(true);
         velocity.y = 0;
