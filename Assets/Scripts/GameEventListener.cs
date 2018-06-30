@@ -1,38 +1,43 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class GameEventListener : MonoBehaviour 
+namespace ODT.Scriptable
 {
-    [SerializeField]
-    protected GameEvent Event;
-    [SerializeField]
-    protected UnityEvent response;
-
-    private void OnEnable()
+    public class GameEventListener : MonoBehaviour
     {
-        if(Event != null)
-        {
-            Event.RegisterListener(this); 
-        } else 
-        {
-            Debug.LogError("Register Listerer error: "+ this.name);
-        }
-    }
+        [SerializeField]
+        protected GameEvent Event;
+        [SerializeField]
+        protected UnityEvent response;
 
-    private void OnDisable ()
-    {
-        if(Event != null)
+        private void OnEnable()
         {
-            Event.UnregisterListener(this);
-        } else
-        {
-            Debug.LogError("Unregister Listerer error: " + this.name);
+            if (Event != null)
+            {
+                Event.RegisterListener(this);
+            }
+            else
+            {
+                Debug.LogError("Register Listerer error: " + this.name);
+            }
         }
 
-    }
+        private void OnDisable()
+        {
+            if (Event != null)
+            {
+                Event.UnregisterListener(this);
+            }
+            else
+            {
+                Debug.LogError("Unregister Listerer error: " + this.name);
+            }
 
-    public virtual void OnEventRaised ()
-    {
-        response.Invoke();
+        }
+
+        public virtual void OnEventRaised()
+        {
+            response.Invoke();
+        }
     }
 }
